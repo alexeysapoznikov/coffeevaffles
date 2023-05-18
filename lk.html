@@ -44,28 +44,252 @@
             <h2>ЛИЧНЫЙ КАБИНЕТ</h2>
         </div>
         <div class="sort">
-            <a href="">История заказов</a>
-            <a href="">История заказов</a>
-            <a href="">История заказов</a>
+            <a href="" class="active" id="actualOrders">Актуальные заказы</a>
+            <a href="" id="historyOrders">История заказов</a>
+            <a href="" id="courses">Курсы</a>
             <p>Ваши бонусы: <span>22</span><svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5.08053 13.0509C5.92413 12.6576 6.60807 11.9512 7.00756 11.0608C7.40705 10.1704 7.49544 9.15524 7.25661 8.20057C6.96229 7.00062 7.07835 5.72694 7.58369 4.61121C8.08903 3.49549 8.95008 2.61183 10.0102 2.12097L11.5318 1.4222C11.4759 1.38197 11.4262 1.33999 11.3642 1.30153C8.83921 -0.265806 5.1756 1.47943 3.16894 5.19693C1.4823 8.38582 1.53516 11.9605 3.17662 13.9232L5.08053 13.0509Z" fill="#695200"/>
             <path d="M8.21029 7.92621C8.50498 9.12582 8.39001 10.3993 7.88624 11.5155C7.38247 12.6318 6.52325 13.517 5.46444 14.0106L4.019 14.6734L4.13846 14.7586C6.66347 16.326 10.3287 14.5873 12.3354 10.8698C14.0229 7.73697 13.9928 4.14866 12.3657 2.21709L10.4039 3.12009C9.56497 3.5079 8.88269 4.20555 8.48038 5.08698C8.07807 5.96841 7.98227 6.97547 8.21029 7.92621Z" fill="#695200"/>
             </svg>
             </p>
-            <a href="">Настройки</a>
+            <a href="" id="settings">Настройки</a>
             <a href="">Выйти</a>
         </div>
+        <script>
+            $('.lk-page .sort a').click(function(e) {
+                e.preventDefault();
+                $('.lk-page .sort a').each(function(e) {
+                    $(this).removeAttr('class');
+                });
+                $(this).addClass('active');
+                
+                console.log('Актуальная вкладка: ' + $(this).attr('id'))
 
+                if ($(this).attr('id') == 'actualOrders') {
+                    $('.actual-orders').css('display', 'block');
+                    $('.history-orders').css('display', 'none');
+                    $('.settings').css('display', 'none');
+                    $('.personal-courses').css('display', 'none');
+
+                } else if ($(this).attr('id') == 'historyOrders') {
+                    $('.actual-orders').css('display', 'none');
+                    $('.history-orders').css('display', 'block');
+                    $('.settings').css('display', 'none');
+                    $('.personal-courses').css('display', 'none');
+                } else if ($(this).attr('id') == 'courses') { 
+                    $('.actual-orders').css('display', 'none');
+                    $('.history-orders').css('display', 'none');
+                    $('.settings').css('display', 'none');
+                    $('.personal-courses').css('display', 'block');
+                } else if ($(this).attr('id') == 'settings') { 
+                    $('.actual-orders').css('display', 'none');
+                    $('.history-orders').css('display', 'none');
+                    $('.personal-courses').css('display', 'none');
+                    $('.settings').css('display', 'block');
+                };
+            });
+        </script>
 
         <div class="content-block">
             <div class="actual-orders">
-                <div class="actual-orders-title">
-                    <p>Заказ #2234561</p>
-                    <p>19.09.2023</p>
+                <div class="actual-order">
+                    <div class="actual-order-title">
+                        <p>Заказ #2234561</p>
+                        <p>19.09.2023</p>
+                    </div>
+                    <table class="order-list">
+                        <tbody>
+                            <tr>
+                               
+                                <td>Название</td>
+                                <td>Объём</td>
+                                <td>Цена</td>
+                                <td>Бонусы</td>
+                            </tr>
+                            <tr>
+                                
+                                <td>1. Вишенвый аморето</td>
+                                <td>222ИЛ</td>
+                                <td>213</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                               
+                                <td>2. Вишенвый аморето</td>
+                                <td>222ИЛ</td>
+                                <td>213</td>
+                                <td>11</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="comment">
+                        <span>Комментарий к заказу:</span>
+                        <p>побыстрее пожалуйста</p>
+                    </div>
+                    <div class="adress">
+                        <span>Адрес доставки</span>
+                        <p>ул. Московская 44АА</p>
+                    </div>
+                    <div class="status">
+                        <p>СТАТУС: <span>В ПРОЦЕССЕ</span></p>
+                    </div>
                 </div>
             </div>
+            <div class="history-orders">
+                <div class="actual-order">
+                    <div class="actual-order-title">
+                        <p>Заказ #2234561</p>
+                        <p>19.09.2023</p>
+                    </div>
+                    <table class="order-list">
+                        <tbody>
+                            <tr>
+                               
+                                <td>Название</td>
+                                <td>Объём</td>
+                                <td>Цена</td>
+                                <td>Бонусы</td>
+                            </tr>
+                            <tr>
+                                
+                                <td>1. Вишенвый аморето</td>
+                                <td>222ИЛ</td>
+                                <td>213</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                               
+                                <td>2. Вишенвый аморето</td>
+                                <td>222ИЛ</td>
+                                <td>213</td>
+                                <td>11</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="comment">
+                        <span>Комментарий к заказу:</span>
+                        <p>побыстрее пожалуйста</p>
+                    </div>
+                    <div class="adress">
+                        <span>Адрес доставки</span>
+                        <p>ул. Московская 44АА</p>
+                    </div>
+                    <div class="status">
+                        <p>СТАТУС: <span>ДОСТАВЛЕН</span></p>
+                    </div>
+                </div>
+                <div class="actual-order">
+                    <div class="actual-order-title">
+                        <p>Заказ #2234561</p>
+                        <p>19.09.2023</p>
+                    </div>
+                    <table class="order-list">
+                        <tbody>
+                            <tr>
+                               
+                                <td>Название</td>
+                                <td>Объём</td>
+                                <td>Цена</td>
+                                <td>Бонусы</td>
+                            </tr>
+                            <tr>
+                                
+                                <td>1. Вишенвый аморето</td>
+                                <td>222ИЛ</td>
+                                <td>213</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                               
+                                <td>2. Вишенвый аморето</td>
+                                <td>222ИЛ</td>
+                                <td>213</td>
+                                <td>11</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="comment">
+                        <span>Комментарий к заказу:</span>
+                        <p>побыстрее пожалуйста</p>
+                    </div>
+                    <div class="adress">
+                        <span>Адрес доставки</span>
+                        <p>ул. Московская 44АА</p>
+                    </div>
+                    <div class="status">
+                        <p>СТАТУС: <span>ДОСТАВЛЕН</span></p>
+                    </div>
+                </div>
+                <div class="actual-order">
+                    <div class="actual-order-title">
+                        <p>Заказ #2234561</p>
+                        <p>19.09.2023</p>
+                    </div>
+                    <table class="order-list">
+                        <tbody>
+                            <tr>
+                               
+                                <td>Название</td>
+                                <td>Объём</td>
+                                <td>Цена</td>
+                                <td>Бонусы</td>
+                            </tr>
+                            <tr>
+                                
+                                <td>1. Вишенвый аморето</td>
+                                <td>222ИЛ</td>
+                                <td>213</td>
+                                <td>11</td>
+                            </tr>
+                            <tr>
+                               
+                                <td>2. Вишенвый аморето</td>
+                                <td>222ИЛ</td>
+                                <td>213</td>
+                                <td>11</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="comment">
+                        <span>Комментарий к заказу:</span>
+                        <p>побыстрее пожалуйста</p>
+                    </div>
+                    <div class="adress">
+                        <span>Адрес доставки</span>
+                        <p>ул. Московская 44АА</p>
+                    </div>
+                    <div class="status">
+                        <p>СТАТУС: <span>ДОСТАВЛЕН</span></p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="personal-courses">
+                <h3>Ваш курс</h3>
+                <img src="./content/couse.png" alt="">
+            </div>
+            <div class="settings">
+                <h3>НАСТРОЙКИ ПОЛЬЗОТВАТЕЛЯ</h3>
+                <form action="">
+                    <p>Сменить имя</p><input type="text" placeholder="Alexey"><button type="submit">СМЕНИТЬ</button>
+                </form>
+                <form action="">
+                    <p>Сменить имя</p><input type="text" placeholder="Alexey"><button type="submit">СМЕНИТЬ</button>
+                </form>
+                <form action="">
+                    <p>Сменить имя</p><input type="text" placeholder="Alexey"><button type="submit">СМЕНИТЬ</button>
+                </form>
+                <form action="">
+                    <p>Сменить имя</p><input type="text" placeholder="Alexey"><button type="submit">СМЕНИТЬ</button>
+                </form>
+            </div>
             <div class="help-form">
-
+                <h3>Форма обратной связи</h3>
+                <p>Возникли вопросы?<br>Закажите обратный звонок, мы свяжемся и поможем вам!</p>
+                <form action="">
+                    <textarea name="" id="" cols="30" rows="10" placeholder="Комментарий" ></textarea>
+                    <button type="submit">ОТПРАВИТЬ</button>
+                </form>
             </div>
         </div>
     </main>
